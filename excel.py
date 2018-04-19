@@ -12,5 +12,7 @@ ws['B2'] = 30
 ws['A3'] = 'Marry'
 ws['B3'] = 29
 
+
+
 # Save the file
 wb.save("sample.xlsx")
