@@ -10,6 +10,8 @@ print(df["values"].mean())
 print(df["values"].min())
 print(df["values"].max())
 
-#Trying to print data to cell directly--------------NOT WORKING :(
-df['A16'] = df["values"].sum()
+#Trying to print data to cell directly--------------Needs to be modified
+#df.iloc[16][1] = df["values"].sum()
+df.set_value(11,'Sum',df["values"].sum())
+df.to_excel('1.xlsx', index=False)
 
