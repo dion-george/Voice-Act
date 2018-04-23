@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import pyttsx
 df = pd.read_excel("1.xlsx")
 
 
@@ -15,3 +16,7 @@ print(df["values"].max())
 df.set_value(11,'Sum',df["values"].sum())
 df.to_excel('1.xlsx', index=False)
 
+
+engine = pyttsx.init()
+engine.say(df["values"].sum())
+engine.runAndWait()
