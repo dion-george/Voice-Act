@@ -47,6 +47,18 @@ while True:
             elif i==4:
                 ws[p2] = '=sqrt('+p1+')'
 
+            elif i==5:
+                ws[p2] = '=log('+p1+')'
+
+            elif i==6:
+                ws[p2] = '=ln('+p1+')'
+
+            elif i==7:
+                ws[p2] = '=fact('+p1+')'
+
+            elif i==8:
+                ws[p2] = '=lcm('+p1+':'+p2+')'
+                
             # Save the file
             wb.save("sample.xlsx")
             print("Say EXIT to terminate.")
@@ -81,6 +93,30 @@ while True:
             p2 = words[4]
             print("\nCommand Found!\n")
 
+        elif words[0] == "log":
+            i=5
+            p1 = words[1]
+            p2 = words[3]
+            print("\nCommand Found!\n")
+
+        elif words[0] == "natural" and word[1] == "log":
+            i=6
+            p1 = words[2]
+            p2 = words[4]
+            print("\nCommand Found!\n")
+
+        elif words[0] == "factorial":
+            i=7
+            p1 = words[1]
+            p2 = words[3]
+            print("\nCommand Found!\n")
+
+        elif words[0] == "LCM":
+            i=8
+            p1 = words[1]
+            p2 = words[2]
+            p3 = words[4]
+            print("\nCommand Found!\n")
             
         else:
             print("\nCommand not found!\n\n")
