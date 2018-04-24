@@ -16,7 +16,7 @@ while True:
     #with microphone input as the input
     with speech.Microphone() as source:
 
-        print("Say something!")
+        print("Say Command.")
 
         #variable = the input from the microphone
         audio = voice.listen(source)
@@ -36,7 +36,24 @@ while True:
         words = voiceRecog.split(" ")
         print(words)
         if "apply" in voiceRecog:
+            if i==1:
+                ws[p3] = '=SUM('+p1+':'+p2+')'
+            elif i==2:
+                ws[p2] = '=ABS('+p1+')'
+
+            elif i==3:
+                ws[p2] = '=EXP('+p1+')'
+
+            elif i==4:
+                ws[p2] = '=sqrt('+p1+')'
+
+            # Save the file
+            wb.save("sample.xlsx")
+            print("Say EXIT to terminate.")
+
+        elif "exit" in voiceRecog:
             break
+
         elif words[0] == "add":
             i = 1
             p1 = words[1]
@@ -51,6 +68,20 @@ while True:
             p1 = words[1]
             p2 = words[3]
             print("\nCommand Found!\n")
+
+        elif words[0] == "exponential":
+            i=3
+            p1 = words[1]
+            p2 = words[3]
+            print("\nCommand Found!\n")
+
+        elif words[0] == "square" and word[1] == "root":
+            i=4
+            p1 = words[2]
+            p2 = words[4]
+            print("\nCommand Found!\n")
+
+            
         else:
             print("\nCommand not found!\n\n")
 
