@@ -1,17 +1,21 @@
-
 # speech recognition
 
 import speech_recognition as speech
+from openpyxl import load_workbook
+
+wb = load_workbook('sample.xlsx')
+
+# grab the active worksheet
+ws = wb.active
+
 
 #a lot of variables used for loops and conditions
 voice = speech.Recognizer()
-# Maintain status of each attempt. You can just use two variables successful_attempts and total_attempts also but status list might help you in maintaining more things like a list of tuples (color, result) etc
-status = []
-# successful_attempts, total_attempts = 0, 0
 
 while True:
     #with microphone input as the input
     with speech.Microphone() as source:
+
         print("Say something!")
 
         #variable = the input from the microphone
@@ -21,30 +25,41 @@ while True:
             #print the word that was heard
             print("\nYou said: " + voiceRecog)
         except speech.UnknownValueError:
-
-
             #if couldnt recognise then print this msg
             print("Sorry, we couldn't make that out. Try again!")
 
         except speech.RequestError as e:
-            print("Could not request results from Google Speech Recognition service; {0}".format(e))
+            print("Could not request results from Google Speech Recognition service")
 
 
         #list of commands  for comparing   
-        words = ["add", "division", "multiply"]
-
-        if "quit" in voiceRecog:
+        words = voiceRecog.split(" ")
+        print(words)
+        if "apply" in voiceRecog:
             break
-        elif voiceRecog in words:
-            status.append(1)
-            # successful_attempts += 1
+        elif words[0] == "add":
+            i = 1
+            p1 = words[1]
+            p2 = words[2]
+            p3 = words[4]
+            print(p1 + p2 + p3)
+            print("\nCommand Found!\n")
+
+
+        elif words[0] == "absolute":
+            i=2
+            p1 = words[1]
+            p2 = words[3]
             print("\nCommand Found!\n")
         else:
-            status.append(0)
             print("\nCommand not found!\n\n")
 
-        # total_attempts += 1
+print("\n Done")
 
-#once loop exited by saying quit, print attempts and successful attempts
-print("\nYou checked for", len(status), "commands and had", sum(status), "successful attempts")
-#print("\nYou checked for", total_attempts, "commands and had", successful_attempts, "successful attempts")
+if i==1:
+    ws[p3] = '=SUM('+p1+':'+p2+')'
+elif i==2:
+    ws[p2] = '=ABS('+p1+')'
+
+# Save the file
+wb.save("sample.xlsx")
