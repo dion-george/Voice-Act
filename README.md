@@ -1,6 +1,10 @@
+# Voice Action
+A python code which would allows the user to carry out mathematical operations in an Excel sheet through voice commands.
+
 Install Python
 
 Command line:
-pip3 install SpeechRecognition
+Windows - pip3 install SpeechRecognition
 
-![alt text](screenshots/1.PNG "Description goes here"| width=48)
+# Screenshots
+![img1](/screenshots/1.PNG?raw=true "img1")
