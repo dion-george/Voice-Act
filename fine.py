@@ -123,10 +123,6 @@ while True:
 
 print("\n Done")
 
-if i==1:
-    ws[p3] = '=SUM('+p1+':'+p2+')'
-elif i==2:
-    ws[p2] = '=ABS('+p1+')'
 
 # Save the file
 wb.save("sample.xlsx")
