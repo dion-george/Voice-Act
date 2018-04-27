@@ -3,4 +3,4 @@ Install Python
 Command line:
 pip3 install SpeechRecognition
 
-![alt text](C:\Users\dion\Desktop\spcc\1.png)
+![alt text](screenshots/1.png "Description goes here")
