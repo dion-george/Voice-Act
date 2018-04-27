@@ -7,4 +7,4 @@ Command line:
 Windows - pip3 install SpeechRecognition
 
 # Screenshots
-![img1](/screenshots/1.PNG?raw=true "img1"){:height="50%" width="50%"}
+![img1](/screenshots/1.PNG=24x48)
